@@ -126,3 +126,35 @@
   box-shadow:
     0 0 6px rgba(0, 234, 255, 0.25);
 }
+
+@media (max-width: 650px) and (pointer: coarse) {
+
+  #heading {
+    top: 16vh;
+    font-size: 7vh;
+    width: 100%;
+    text-align: center;
+  }
+
+  #subheading {
+    top: 30vh;
+    font-size: 3vh;
+    width: 90%;
+    text-align: center;
+  }
+
+  #buttons {
+    top: 44vh;
+    width: 100%;
+    flex-direction: column;
+    gap: 2vh;
+  }
+
+  #buttons button {
+    width: 70vw;
+    height: auto;
+    font-size: 2vh;
+    padding: 1.6vh 0;
+  }
+}
+
