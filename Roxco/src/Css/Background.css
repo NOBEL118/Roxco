@@ -1,0 +1,128 @@
+/* ===== BACKGROUND WRAPPER ===== */
+#background {
+  position: fixed;
+  display: flex;
+  inset: 0;
+  z-index: -1;
+  align-items: center;
+  justify-content: center;
+  color: aliceblue;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(
+    120deg,
+    #060606,
+    #090c0d,
+    #06243e,
+    #02293ad8
+  );
+
+  background-size: 300% 300%;
+  animation: gradientMove 12s ease infinite;
+}
+
+/* ===== SMOOTH ANIMATION ===== */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===== GOLD PARTICLES LAYER ===== */
+#background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(circle, rgba(255, 215, 120, 0.45) 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(255, 200, 80, 0.35) 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(255, 180, 60, 0.25) 1px, transparent 1.5px);
+
+  background-size:
+    120px 120px,
+    180px 180px,
+    240px 240px;
+
+  animation: particlesFloat 20s linear infinite;
+  pointer-events: none;
+}
+
+/* ===== PARTICLE MOTION ===== */
+@keyframes particlesFloat {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-200px);
+  }
+}
+
+#heading {
+  font-size: 12vh;
+  margin-bottom: 2vh;
+  position: absolute;
+  top: 20vh;
+  color: rgb(255, 255, 255);
+}
+
+#subheading {
+  font-size: 5vh;
+  position: absolute;
+  top: 39vh;
+  color: rgba(255, 255, 255, 0.352);
+  
+}
+#buttons {
+  position: absolute;
+  top: 55vh;
+  height: 8vh;
+  width: 15vw;
+  display: flex;
+  gap: 3vw;
+  align-items: center;
+  justify-content: center;
+}
+
+#buttons button {
+  background-color: rgb(0, 0, 0);
+  border: 0.2vh solid rgba(0, 234, 255, 0.45);
+  color: #f7fbfb;
+  padding: 1.2vh 2.4vw;
+  border-radius: 0.8vh;
+  font-size: 2.5vh;
+  height: 10vh;
+  width: 15vw;
+  cursor: pointer;
+}
+
+#buttons button {
+  transition: 
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+/* HOVER */
+#buttons button:hover {
+  transform: translateY(-3px) scale(1.03);
+  background-color: rgba(0, 234, 255, 0.08);
+  border-color: rgba(0, 234, 255, 0.9);
+  box-shadow:
+    0 0 12px rgba(0, 234, 255, 0.35),
+    0 0 24px rgba(0, 234, 255, 0.15);
+}
+
+/* CLICK FEEDBACK */
+#buttons button:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow:
+    0 0 6px rgba(0, 234, 255, 0.25);
+}
